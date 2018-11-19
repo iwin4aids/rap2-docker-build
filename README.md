@@ -20,8 +20,8 @@ volumes:
 启动后端服务
 
 ```cmd
-> cd rap2-delos
-> docker-compose up -d
+cd rap2-delos
+docker-compose up -d
 ```
 
 校验是否成功部署
@@ -36,13 +36,13 @@ volumes:
 delos的docker-compose.yml文件以及根目录下的docker-compose-rap2.yml中容器启动脚本在第一次执行时使用以下语句初始化数据库：
 
 ```cmd
-> command: /bin/sh -c 'sleep 30; node scripts/init; node dispatch.js'
+command: /bin/sh -c 'sleep 30; node scripts/init; node dispatch.js'
 ```
 
 后续运行需要去掉数据库初始化命令，防止删掉之前mysql中的数据，改为直接启动后端服务即可：
 
 ```cmd
-> command: /bin/sh -c 'node dispatch.js'
+command: /bin/sh -c 'node dispatch.js'
 ```
 
 ## 前端部署
@@ -63,8 +63,8 @@ module.exports = {
 启动前端服务
 
 ```cmd
-> cd rap2-dolores
-> docker-compose up -d
+cd rap2-dolores
+docker-compose up -d
 ```
 
 访问以下url即可进入rap2登录页面：
