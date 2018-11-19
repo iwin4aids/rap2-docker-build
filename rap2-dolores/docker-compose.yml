@@ -1,0 +1,13 @@
+version: '2.2'
+services:
+  dolores:
+    container_name: rap2-dolores
+    # build from ./Dockerfile
+    build: .
+    working_dir: /home/rap2-dolores
+    environment:
+      - NODE_ENV=production
+    command: /bin/sh -c 'serve -s /home/rap2-dolores/build -p 8081'
+    privileged: true
+    ports:
+      - "38081:8081"
