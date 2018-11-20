@@ -6,7 +6,7 @@
 
 ## 后端部署
 
-docker-compose.yml文件中对mysql进行持久化设置（如果不配置volumn则每次重启后数据丢失）
+docker-compose.yml文件中对mysql进行持久化设置（如果不配置volume则每次重启后数据丢失）
 
 例如: 将宿主机的 `~/docker/mysql/volume` 映射到容器内目录 `/var/lib/mysql`
 
@@ -27,13 +27,13 @@ docker-compose up -d
 校验是否成功部署
 
 ```cmd
-> curl http://localhost:38080
+curl http://localhost:38080
 ```
 
 打印出 ***Hello RAP!*** 即代表后端部署成功。
 
 注意：
-delos的docker-compose.yml文件以及根目录下的docker-compose-rap2.yml中容器启动脚本在第一次执行时使用以下语句初始化数据库：
+delos目录的`docker-compose.yml`文件以及根目录下的`docker-compose-rap2.yml`中容器启动脚本在首次执行时使用以下语句初始化数据库：
 
 ```cmd
 command: /bin/sh -c 'sleep 30; node scripts/init; node dispatch.js'
